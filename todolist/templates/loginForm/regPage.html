@@ -1,0 +1,44 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page</title>
+    <link rel="stylesheet" href="{% static 'todolist/styles.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="formRegistration">
+        <div class="formRegistration__title">
+            <h2>Registration Form</h2>
+        </div>
+        <form action="#" method="POST" class="formRegistration__form">
+            {% csrf_token %}
+            {{form.username.label}}
+            {{form.username}}
+
+            {{form.email.label}}
+            {{form.email}}
+
+            {{form.password1.label}}
+            {{form.password1}}
+
+            {{form.password2.label}}
+            {{form.password2}}
+
+            {{form.errors}}
+            <input type="submit" value="Create user">
+        </form>
+        <div class="formRegistration__button">
+            У вас уже есть аккаунт?
+            <a href="/login" class="">Login</a>
+        </div>
+    </div>
+</body>
+
+</html>

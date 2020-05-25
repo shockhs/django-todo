@@ -1,0 +1,42 @@
+{% load static %}
+
+{% if message %}
+<script>
+    alert('{{message}}')
+</script>
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="{% static 'todolist/styles.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="formRegistration">
+        <div class="formRegistration__title">
+            <h2>Login</h2>
+        </div>
+        <form action="#" method="POST" autocomplete="off" class="formRegistration__form">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input name="username" id="username" type="text">
+            <label for="password">Password:</label>
+            <input name="password" id="password" type="password">
+            <input type="submit" value="Login">
+        </form>
+        {% for message in messages %}
+        <p id="messages">{{message}}</p>
+        {% endfor %}
+        <div class="formRegistration__button">
+            У вас нет аккаунт? <a href="/registration">Register</a>
+        </div>
+    </div>
+</body>
+
+</html>
